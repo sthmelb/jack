@@ -24,21 +24,20 @@ body {
 
 
 .side-menu {
-    width: 200px;
+    width: 250px;
+    height: 100vh;
     background-color: #f0f0f0;
-    padding: 20px;
     position: fixed;
     top: 0;
-    left: 0;
-    bottom: 0;
-    overflow-y: auto;
-    transition: transform 0.3s ease-in-out; /* Add transition for smooth animation */
-    transform: translateX(0); /* Start with menu visible on desktop */
+    left: -20px; /* Start off-screen */
+    transition: transform 0.3s ease-in-out; /* Smooth animation */
 }
 
-.side-menu.hide-sidebar {
-    transform: translateX(-100%); /* Move sidebar out of view on mobile */
+.side-menu.open-sidebar {
+    transform: translateX(0); /* Slide sidebar into view */
 }
+
+
 
 .side-menu ul {
     list-style-type: none;
@@ -49,10 +48,28 @@ body {
     margin-bottom: 10px;
 }
 
+.side-menu ul li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.side-menu ul li a:hover {
+    background-color: #ddd;
+}
+
 .main-content {
-    margin-left: 200px; /* Same as the sidebar width */
-    padding: 20px;
-    width: calc(100% - 200px); /* Ensure the main content takes up the remaining width */
+    margin-left: 0; /* Initial margin */
+    transition: margin-left 0.3s ease-in-out; /* Add transition for smooth animation */
+}
+
+.side-menu.open-sidebar + .main-content {
+    margin-left: 220px; /* Adjusted margin to accommodate side menu width */
+}
+
+.main-content.push-right {
+    margin-left: 250px; /* Adjusted margin to accommodate sidebar */
 }
 
 .section {
@@ -60,56 +77,59 @@ body {
     margin-bottom: 20px;
     /*background-color: #222;*/
     overflow-y: auto; /* Enable vertical scrolling if needed */
-    height: 100vh;
+    min-height: 100vh;
 }
 
-/* Toggle button */
 .toggle-btn {
-    display: none; /* Hide toggle button by default */
     position: fixed;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 10px;
+    right: 10px; /* Adjust as needed */
     background-color: #333;
     color: white;
     padding: 10px;
     cursor: pointer;
-    z-index: 2;
+    border: none;
+    outline: none;
+    z-index: 1001; /* Ensure toggle button is above other content */
+    display: none; /* Hide toggle button by default */
 }
 
-/* Adjust toggle button for smaller screens */
+/* Adjust for smaller screens */
 @media screen and (max-width: 768px) {
+    .toggle-btn {
+        display: block; /* Show toggle button on mobile */
+    }
 
     .side-menu {
-        width: 100%; /* Full width for sidebar on small screens */
-        max-width: 250px; /* Limit maximum width */
-        height: 100vh; /* Full height */
-        transform: translateX(-100%); /* Start with sidebar hidden on mobile */
+        width: 100%;
+        max-width: 250px;
+        left: -100%; /* Start off-screen for mobile */
     }
 
-    .main-content {
-        margin-left: 0; /* No margin for content on small screens */
-        transition: margin-left 0.3s ease-in-out; /* Add transition for smooth animation */
+    .side-menu.open-sidebar {
+        transform: translateX(100%); /* Slide sidebar into view for mobile */
     }
 
-    .toggle-btn {
-        display: block; /* Show toggle button on small screens */
+    .main-content.push-right {
+        margin-left: 0; /* No margin for content on mobile */
     }
 }
 
 
 .container {
     display: flex;
-    min-height: 100vh;
+    position: relative;
 }
 
 .logo-container {
     margin-top: 20px; /* Add some space between the description and the logo */
+    align-items: center;
 }
 
 .logo {
     max-width: 200px; /* Adjust the size as needed */
     height: auto;
+    align-items: center;
 }
 
 .description-box {
@@ -126,13 +146,10 @@ body {
 }
 
 #home {
-    text-align: center;
-    z-index: 1; /* Ensure content is above floating images */
+    align-items: center;
     margin-top: 20px; /* Add some margin from the top */
     padding: 0 20px; /* Add horizontal padding for better appearance on mobile devices */
     max-width: 600px; /* Limit the max width for the content */
-    margin-left: auto;
-    margin-right: auto;
 }
 
 #howtobuy {

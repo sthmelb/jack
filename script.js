@@ -78,8 +78,22 @@ setInterval(createFloatingImage, 8000);
 
 // Ensure no multiple creations when leaving and coming back to the page
 
-// Function to toggle sidebar visibility
-function toggleSidebar() {
+
+document.addEventListener('DOMContentLoaded', function() {
+    var toggleBtn = document.querySelector('.toggle-btn');
     var sideMenu = document.querySelector('.side-menu');
-    sideMenu.classList.toggle('hide-sidebar');
-}
+    var mainContent = document.querySelector('.main-content');
+
+    toggleBtn.addEventListener('click', function() {
+        sideMenu.classList.toggle('open-sidebar');
+        mainContent.classList.toggle('push-right');
+    });
+
+    // Close sidebar when clicking outside on mobile (optional)
+    document.addEventListener('click', function(event) {
+        if (!sideMenu.contains(event.target) && !toggleBtn.contains(event.target)) {
+            sideMenu.classList.remove('open-sidebar');
+            mainContent.classList.remove('push-right');
+        }
+    });
+});
