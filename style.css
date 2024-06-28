@@ -79,9 +79,6 @@ body {
 
 /* Adjust toggle button for smaller screens */
 @media screen and (max-width: 768px) {
-    .container {
-        flex-direction: column; /* Stack elements vertically on small screens */
-    }
 
     .side-menu {
         width: 100%; /* Full width for sidebar on small screens */
@@ -130,7 +127,6 @@ body {
 
 #home {
     text-align: center;
-    position: relative;
     z-index: 1; /* Ensure content is above floating images */
     margin-top: 20px; /* Add some margin from the top */
     padding: 0 20px; /* Add horizontal padding for better appearance on mobile devices */
