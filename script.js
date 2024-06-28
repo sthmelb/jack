@@ -1,4 +1,4 @@
-const imageFolder = 'images/background/';
+const imageFolder = 'Images/background/';
 const images = ['crevat.png', 'fire.png', 'hardhat.png', 'hammer.png', 'jackpres.png', 'jacksurf.png', 'police.png', 'teach.png']; // Add more image file names here
 
 const usedImages = [];
