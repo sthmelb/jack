@@ -1,0 +1,58 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-family: Verdana, sans-serif;
+    overflow: hidden; /* Prevent scroll bars */
+    background-color: #222222;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    color: #999; /* Darkish grey text color */
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 20px; /* Adjust the top padding for mobile devices */
+}
+
+.content {
+    text-align: center;
+    position: relative;
+    z-index: 1; /* Ensure content is above floating images */
+    margin-top: 20px; /* Add some margin from the top */
+    padding: 0 20px; /* Add horizontal padding for better appearance on mobile devices */
+    max-width: 600px; /* Limit the max width for the content */
+}
+
+.logo-container {
+    margin-top: 20px; /* Add some space between the description and the logo */
+}
+
+.logo {
+    max-width: 200px; /* Adjust the size as needed */
+    height: auto;
+}
+
+.description-box {
+    background-color: #fff; /* White background */
+    border-radius: 10px; /* Rounded corners */
+    padding: 15px; /* Padding inside the box */
+    margin-top: 20px; /* Space between the logo and description box */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: add shadow for depth */
+}
+
+.description {
+    margin: 0;
+    color: #333; /* Darkish grey text color */
+}
+
+.floating-image {
+    position: absolute;
+    bottom: -100px; /* Start off-screen at the bottom */
+    opacity: 0.8; /* Adjust opacity as needed */
+    width: 200px; /* Double the original size */
+    height: auto;
+}
