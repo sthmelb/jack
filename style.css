@@ -18,14 +18,34 @@ body {
     padding-top: 20px; /* Adjust the top padding for mobile devices */
 }
 
-.content {
-    text-align: center;
-    position: relative;
-    z-index: 1; /* Ensure content is above floating images */
-    margin-top: 20px; /* Add some margin from the top */
-    padding: 0 20px; /* Add horizontal padding for better appearance on mobile devices */
-    max-width: 600px; /* Limit the max width for the content */
+.side-menu {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh; /* Make the side menu full height of the viewport */
+    width: 200px;
+    background-color: #999;
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in width */
 }
+
+.side-menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.side-menu ul li {
+    margin-bottom: 10px;
+}
+
+.side-menu ul li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 10px;
+}
+
+
 
 .logo-container {
     margin-top: 20px; /* Add some space between the description and the logo */
@@ -49,6 +69,29 @@ body {
     color: #333; /* Darkish grey text color */
 }
 
+.section {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+#home {
+    text-align: center;
+    position: relative;
+    z-index: 1; /* Ensure content is above floating images */
+    margin-top: 20px; /* Add some margin from the top */
+    padding: 0 20px; /* Add horizontal padding for better appearance on mobile devices */
+    max-width: 600px; /* Limit the max width for the content */
+}
+
+#tokenomics {
+    align-items: flex-start; /* Align items to the start (left) */
+}
+
+#how-to-buy {
+    align-items: flex-end; /* Align items to the end (right) */
+}
 .floating-image {
     position: absolute;
     bottom: -100px; /* Start off-screen at the bottom */
