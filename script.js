@@ -77,3 +77,9 @@ const createFloatingImage = () => {
 setInterval(createFloatingImage, 8000);
 
 // Ensure no multiple creations when leaving and coming back to the page
+
+// Function to toggle sidebar visibility
+function toggleSidebar() {
+    var sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('hide-sidebar');
+}
