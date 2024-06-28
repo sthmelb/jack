@@ -80,6 +80,6 @@ setInterval(createFloatingImage, 8000);
 
 // Function to toggle sidebar visibility
 function toggleSidebar() {
-    var sidebar = document.getElementById('sidebar');
-    sidebar.classList.toggle('hide-sidebar');
+    var sideMenu = document.querySelector('.side-menu');
+    sideMenu.classList.toggle('hide-sidebar');
 }
