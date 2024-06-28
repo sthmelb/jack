@@ -5,7 +5,6 @@ const usedImages = [];
 const lastPositions = [];
 
 function getRandomImage() {
-
     const availableImages = images.filter(image => !usedImages.includes(image));
 
     // If not enough images to choose from, reset the used images array
@@ -44,25 +43,37 @@ const getRandomXPosition = (viewportWidth) => {
 const createFloatingImage = () => {
     const floatingImage = document.createElement('img');
     floatingImage.src = `${imageFolder}${getRandomImage()}`;
+
     floatingImage.className = 'floating-image';
+    floatingImage.style.position = 'absolute';
 
     // Set a random x-position avoiding the last 3 positions within 200 pixels
     const xPos = getRandomXPosition(window.innerWidth);
     floatingImage.style.left = `${xPos}px`;
 
+    // Set the initial top position relative to the document
+    let top = window.scrollY + Math.random() * window.innerHeight;
+    floatingImage.style.top = `${top}px`;
+
     document.body.appendChild(floatingImage);
 
     // Animate the floating image
-    let bottom = -100;
     const interval = setInterval(() => {
-        bottom += 1;
-        floatingImage.style.bottom = `${bottom}px`;
-        if (bottom > window.innerHeight) {
+        top -= 1;
+        floatingImage.style.top = `${top}px`;
+        if (top > document.body.scrollHeight) {
             clearInterval(interval);
             floatingImage.remove();
         }
     }, 30);
+
+    // Ensure the image scrolls with the page
+    window.addEventListener('scroll', () => {
+        floatingImage.style.top = `${top - window.scrollY}px`;
+    });
 };
 
-// Create a new floating image every 4 seconds
+// Create a new floating image every 8 seconds
 setInterval(createFloatingImage, 8000);
+
+// Ensure no multiple creations when leaving and coming back to the page
