@@ -14,8 +14,9 @@ html, body {
 body {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    /*align-items: flex-start;*/
     padding-top: 20px; /* Adjust the top padding for mobile devices */
+    overflow-y: auto;
 }
 
 .side-menu {
@@ -45,7 +46,16 @@ body {
     padding: 10px;
 }
 
+.main-content {
+    margin-left: 200px; /* Same as the sidebar width */
+    padding: 20px;
+    width: calc(100% - 200px); /* Ensure the main content takes up the remaining width */
+}
 
+.container {
+    display: flex;
+    min-height: 100vh;
+}
 
 .logo-container {
     margin-top: 20px; /* Add some space between the description and the logo */
@@ -70,10 +80,10 @@ body {
 }
 
 .section {
-    display: flex;
-    flex-direction: column;
     padding: 20px;
     margin-bottom: 20px;
+    background-color: #222;
+    overflow-y: auto; /* Enable vertical scrolling if needed */
 }
 
 #home {
@@ -83,13 +93,15 @@ body {
     margin-top: 20px; /* Add some margin from the top */
     padding: 0 20px; /* Add horizontal padding for better appearance on mobile devices */
     max-width: 600px; /* Limit the max width for the content */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #tokenomics {
     align-items: flex-start; /* Align items to the start (left) */
 }
 
-#how-to-buy {
+#howtobuy {
     align-items: flex-end; /* Align items to the end (right) */
 }
 .floating-image {

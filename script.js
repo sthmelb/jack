@@ -29,7 +29,7 @@ function getRandomImage() {
 const getRandomXPosition = (viewportWidth) => {
     let xPos;
     do {
-        xPos = Math.random() * (viewportWidth - 200 + 200); // Ensure it fits within the viewport
+        xPos = 200 + Math.random() * (viewportWidth - 200); // Ensure it fits within the viewport
     } while (lastPositions.length > 0 && Math.abs(xPos - lastPositions[lastPositions.length - 1]) < 200);
 
     // Update the last positions array
