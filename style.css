@@ -22,22 +22,15 @@ body {
 }
 
 
-
+/* Ensure basic styling for side menu */
 .side-menu {
     width: 250px;
-    height: 100vh;
     background-color: #f0f0f0;
     position: fixed;
     top: 0;
-    left: -20px; /* Start off-screen */
-    transition: transform 0.3s ease-in-out; /* Smooth animation */
+    left: 0;
+    height: 100vh;
 }
-
-.side-menu.open-sidebar {
-    transform: translateX(0); /* Slide sidebar into view */
-}
-
-
 
 .side-menu ul {
     list-style-type: none;
@@ -58,6 +51,11 @@ body {
 .side-menu ul li a:hover {
     background-color: #ddd;
 }
+
+.side-menu.open-sidebar {
+    transform: translateX(0); /* Slide sidebar into view */
+}
+
 
 .main-content {
     margin-left: 0; /* Initial margin */
