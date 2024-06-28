@@ -1,8 +1,10 @@
+
+
 html, body {
     height: 100%;
     width: 100%;
     margin: 0;
-    font-family: Verdana, sans-serif;
+    font-family: "Fredoka", sans-serif;
     overflow: hidden; /* Prevent scroll bars */
     background-color: #222222;
     display: flex;
@@ -98,13 +100,18 @@ body {
     margin-right: auto;
 }
 
-#tokenomics {
-    align-items: flex-start; /* Align items to the start (left) */
-}
-
 #howtobuy {
     align-items: flex-end; /* Align items to the end (right) */
 }
+
+#about{
+    align-items: flex-start; /* Align items to the end (right) */
+}
+
+#tokenomics {
+    align-items: flex-end; /* Align items to the start (left) */
+}
+
 .floating-image {
     position: absolute;
     bottom: -100px; /* Start off-screen at the bottom */
