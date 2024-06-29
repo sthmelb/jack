@@ -74,10 +74,9 @@ const createFloatingImage = () => {
 };
 
 // Create a new floating image every 8 seconds
-setInterval(createFloatingImage, 8000);
+// setInterval(createFloatingImage, 8000);
 
 // Ensure no multiple creations when leaving and coming back to the page
-
 
 const toggleBtn = document.querySelector('.toggle-btn');
 const sideMenu = document.querySelector('.side-menu');

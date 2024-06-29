@@ -16,15 +16,23 @@ body {
 }
 
 .logo-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    text-align: center;
+    margin: 20px auto;
+    max-width: 300px; /* Adjust width as needed */
 }
 
 .logo {
-    max-width: 200px; /* Adjust the size as needed */
+    max-width: 100%;
     height: auto;
+    display: block;
+}
+
+.description-box {
+    margin-top: 20px;
+}
+
+.description {
+    text-align: center;
 }
 
 .container {
@@ -41,6 +49,7 @@ body {
     height: 100vh;
     transform: translateX(0); /* Default visible on desktop */
     transition: transform 0.3s ease-in-out;
+    z-index: 1000;
 }
 
 .side-menu ul {
